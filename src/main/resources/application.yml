@@ -4,8 +4,8 @@ server:
 spring: 
    datasource: 
       url: jdbc:mysql://localhost:3306/ecom?allowPublicKeyRetrieval=true&createDatabaseIfNotExist=true&useSSL=false
-      username: mysqluser
-      password: password
+      username: root
+      password: Jaseasuncion_1304
       driver-class-name: com.mysql.cj.jdbc.Driver
    jpa: 
       show-sql: true
