@@ -1,0 +1,39 @@
+<section class="checkout">
+  <h2>Checkout</h2>
+
+  <div *ngIf="placed(); else formTpl" class="success">
+    🎉 Order placed successfully!
+    <div class="muted">Thank you for your purchase.</div>
+    <a routerLink="/products" class="btn" style="margin-top:12px">Continue shopping</a>
+  </div>
+
+  <ng-template #formTpl>
+    <div class="grid">
+      <div class="panel">
+        <h3>Order Details</h3>
+        <div class="muted" *ngIf="!auth.isAuthenticated()">Please log in to place your order.</div>
+        <div class="summary">
+          <div *ngFor="let i of items()" class="item">
+            <div class="item-name">{{ i.product.name }}</div>
+            <div class="item-meta">
+              <div>Quantity {{ i.quantity }}</div>
+            </div>
+          </div>
+          <div class="grand-total">
+            <div>Grand Total</div>
+            <div>{{ total() | number:'1.2-2' }}</div>
+          </div>
+        </div>
+      </div>
+      <div class="panel">
+        <h3>Payment</h3>
+        <div class="muted">Simulated checkout for now.</div>
+        <button class="btn" [disabled]="placing() || items().length===0" (click)="placeOrder()">
+          {{ placing() ? 'Placing order...' : 'Proceed to Checkout' }}
+        </button>
+      </div>
+    </div>
+  </ng-template>
+</section>
+
+

@@ -1,0 +1,297 @@
+<style>
+  :host {
+    /* Xiaomi-bright theme */
+    --brand: #ff6a00;
+    --brand-2: #ff8c1a;
+    --accent: var(--brand);
+    --bg: #f7f7f8;
+    --card: #ffffff;
+    --card-border: #e5e7eb;
+    --text: #111827;
+    --text-secondary: #6b7280;
+    --glow: 0 12px 28px rgba(0,0,0,0.12);
+
+    --pill-accent: var(--brand);
+
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+      Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+      "Segoe UI Symbol";
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1 {
+    font-size: 3.125rem;
+    color: var(--gray-900);
+    font-weight: 500;
+    line-height: 100%;
+    letter-spacing: -0.125rem;
+    margin: 0;
+    font-family: "Inter Tight", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+      Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+      "Segoe UI Symbol";
+  }
+
+  p {
+    margin: 0;
+    color: var(--gray-700);
+  }
+
+  main {
+    width: 100%;
+    min-height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    box-sizing: inherit;
+    position: relative;
+  }
+
+  .angular-logo {
+    max-width: 9.2rem;
+  }
+
+  .content {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    max-width: 700px;
+    margin-bottom: 3rem;
+  }
+
+  .content h1 {
+    margin-top: 1.75rem;
+  }
+
+  .content p {
+    margin-top: 1.5rem;
+  }
+
+  .divider {
+    width: 1px;
+    background: var(--red-to-pink-to-purple-vertical-gradient);
+    margin-inline: 0.5rem;
+  }
+
+  .pill-group {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+  }
+
+  .pill {
+    display: flex;
+    align-items: center;
+    --pill-accent: var(--bright-blue);
+    background: color-mix(in srgb, var(--pill-accent) 5%, transparent);
+    color: var(--pill-accent);
+    padding-inline: 0.75rem;
+    padding-block: 0.375rem;
+    border-radius: 2.75rem;
+    border: 0;
+    transition: background 0.3s ease;
+    font-family: var(--inter-font);
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.4rem;
+    letter-spacing: -0.00875rem;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .pill:hover {
+    background: color-mix(in srgb, var(--pill-accent) 15%, transparent);
+  }
+
+  .pill-group .pill:nth-child(6n + 1) {
+    --pill-accent: var(--bright-blue);
+  }
+
+  .pill-group .pill:nth-child(6n + 2) {
+    --pill-accent: var(--electric-violet);
+  }
+
+  .pill-group .pill:nth-child(6n + 3) {
+    --pill-accent: var(--french-violet);
+  }
+
+  .pill-group .pill:nth-child(6n + 4),
+  .pill-group .pill:nth-child(6n + 5),
+  .pill-group .pill:nth-child(6n + 6) {
+    --pill-accent: var(--hot-red);
+  }
+
+  .pill-group svg {
+    margin-inline-start: 0.25rem;
+  }
+
+  .social-links {
+    display: flex;
+    align-items: center;
+    gap: 0.73rem;
+    margin-top: 1.5rem;
+  }
+
+  .social-links path {
+    transition: fill 0.3s ease;
+    fill: var(--gray-400);
+  }
+
+  .social-links a:hover svg path {
+    fill: var(--gray-900);
+  }
+
+  @media screen and (max-width: 650px) {
+    .content {
+      flex-direction: column;
+      width: max-content;
+    }
+
+    .divider {
+      height: 1px;
+      width: 100%;
+      background: var(--red-to-pink-to-purple-horizontal-gradient);
+      margin-block: 1.5rem;
+    }
+  }
+
+  .site-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--card);
+    padding: 1rem 2rem;
+    border-bottom: 1px solid var(--card-border);
+    position: sticky; top: 0; z-index: 1000;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  }
+
+  .logo {
+    font-weight: bold;
+    font-size: 1.4rem;
+    color: #333;
+    text-decoration: none;
+  }
+
+  .navbar {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  /* Normalize vertical alignment across links, spans, and dropdown trigger */
+  .navbar a,
+  .navbar .auth-link,
+  .navbar .cart-link,
+  .navbar .user-greeting {
+    display: inline-flex;
+    align-items: center;
+    height: 36px;
+  }
+
+  /* Slightly shift greeting left */
+  .navbar .user-greeting {
+    margin-left: 30px;
+  }
+
+  .dropdown {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .dropdown>a {
+    display: inline-flex;
+    align-items: center;
+    height: 36px;
+  }
+
+  .navbar a {
+    color: #333;
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .navbar a.active {
+    color: var(--accent);
+  }
+
+  /* Ensure "Products" link has no blue background */
+  .navbar a,
+  .navbar a.active,
+  .navbar a:focus,
+  .navbar a:hover {
+    background: transparent !important;
+  }
+
+  .dropdown {
+    position: relative;
+  }
+
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+    min-width: 180px;
+    border-radius: 4px;
+  }
+
+  .dropdown-content a {
+    display: block;
+    padding: 0.6rem 1rem;
+    color: #333;
+    text-decoration: none;
+  }
+
+  .dropdown-content a:hover {
+    background-color: #f5f5f5;
+  }
+
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+</style>
+
+<header class="site-header">
+  <a class="logo" routerLink="/">TechTrend Hub</a>
+
+  <nav class="navbar">
+    <div class="dropdown">
+      <a routerLink="/products" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Products</a>
+      <div class="dropdown-content">
+        <a routerLink="/category/Wearables">Wearables</a>
+        <a routerLink="/category/Audio Tech">Audio Tech</a>
+        <a routerLink="/category/Smart Home">Smart Home</a>
+        <a routerLink="/category/Accessories">Accessories</a>
+      </div>
+    </div>
+    <a routerLink="/about" routerLinkActive="active">About</a>
+    @if (!isAuthenticated()) {
+    <a routerLink="/login" class="auth-link">Login</a>
+    <a routerLink="/signup" class="auth-link signup">Sign Up</a>
+    } @else {
+    <span class="user-greeting">Hello, {{ currentUser()?.firstName }}!</span>
+    <a href="#" (click)="logout($event)" class="auth-link">Logout</a>
+    }
+    <a routerLink="/cart" routerLinkActive="active" class="cart-link">Cart ({{ cartCount() }})</a>
+  </nav>
+</header>
+
+
+<main class="site-main">
+  <router-outlet />
+</main>
+
+<footer class="site-footer">
+  © {{ currentYear }} TechTrend Hub · Built for the future ·
+  <a href="https://github.com" target="_blank" rel="noopener" style="color:var(--brand)">GitHub</a>
+</footer>

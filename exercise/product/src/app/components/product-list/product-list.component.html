@@ -1,0 +1,43 @@
+<section class="catalog">
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Discover the Future of Smart Living</h1>
+      <p class="subtitle">Wearables · Audio Tech · Smart Home · Accessories</p>
+      <a class="btn" routerLink="/products">Shop Now</a>
+    </div>
+  </section>
+
+  <div class="filters">
+    <input type="search" placeholder="Search products..." [ngModel]="query()" (ngModelChange)="query.set($event)" />
+    <select [ngModel]="selectedCategory()" (ngModelChange)="selectedCategory.set($event)">
+      <option value="">All categories</option>
+      <option *ngFor="let c of categories()" [value]="c.categoryName">{{ c.categoryName }}</option>
+    </select>
+  </div>
+
+  <div *ngIf="loading(); else list">
+    Loading products...
+  </div>
+
+  <ng-template #list>
+    <div class="category" *ngFor="let category of filteredCategories()">
+      <div class="category-card">
+        <div class="category-header">
+          <h3>{{ category.categoryName }}</h3>
+        </div>
+        <div class="grid">
+          <a class="card product-card" [routerLink]="['/product', product.id]" *ngFor="let product of category.products">
+            <div class="badge" *ngIf="product.badge">{{ product.badge }}</div>
+            <img [src]="'assets/' + (product.imageFile || 'placeholder.png')" [alt]="product.name" />
+            <div class="info">
+              <div class="name">{{ product.name }}</div>
+              <div class="price">{{ product.price }}</div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+</section>
+
+

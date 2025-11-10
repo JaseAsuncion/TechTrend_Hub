@@ -1,0 +1,150 @@
+.cart {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 32px 16px;
+}
+
+.cart h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 24px;
+  color: var(--text);
+  text-align: center;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--card);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+}
+
+.table thead {
+  background: linear-gradient(135deg, var(--brand), var(--brand-2));
+  color: white;
+}
+
+.table th, .table td {
+  padding: 16px;
+  text-align: left;
+}
+
+.table th {
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
+}
+
+.table tbody tr {
+  border-bottom: 1px solid var(--card-border);
+  transition: background 0.2s ease;
+}
+
+.table tbody tr:hover {
+  background: rgba(0, 102, 255, 0.03);
+}
+
+.table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.prod {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.prod img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 12px;
+  background: var(--bg);
+  border: 1px solid var(--card-border);
+}
+
+.prod .name {
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+
+.prod .muted {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.table input[type="number"] {
+  width: 60px;
+  padding: 8px;
+  border: 1px solid var(--card-border);
+  border-radius: 6px;
+  text-align: center;
+  font-size: 1rem;
+}
+
+.total {
+  margin: 32px 0 24px;
+  font-size: 1.5rem;
+  text-align: right;
+  padding: 20px;
+  background: var(--card);
+  border-radius: 12px;
+  border: 2px solid var(--brand);
+}
+
+.total strong {
+  color: var(--brand);
+  font-size: 1.8rem;
+}
+
+.cart .btn {
+  display: inline-block;
+  width: 96%;
+  text-align: center;
+  padding: 16px;
+  font-size: 1.1rem;
+}
+
+@media (max-width: 768px) {
+  .table {
+    font-size: 0.9rem;
+  }
+  
+  .table th, .table td {
+    padding: 12px 8px;
+  }
+  
+  .prod img {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .table thead {
+    display: none;
+  }
+  
+  .table tbody tr {
+    display: block;
+    margin-bottom: 16px;
+    border: 1px solid var(--card-border);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  
+  .table tbody td {
+    display: block;
+    text-align: right;
+    padding: 12px;
+  }
+  
+  .table tbody td::before {
+    content: attr(data-label);
+    float: left;
+    font-weight: 600;
+  }
+}
+
+

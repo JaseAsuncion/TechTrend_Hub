@@ -1,0 +1,38 @@
+<section class="cart">
+  <h2>Your Cart</h2>
+  <div *ngIf="items().length === 0; else filled">Your cart is empty.</div>
+
+  <ng-template #filled>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Product</th>
+          <th>Price</th>
+          <th>Qty</th>
+          <th>Subtotal</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let i of items()">
+          <td class="prod">
+            <img [src]="'assets/' + (i.product.imageFile || 'placeholder.png')" [alt]="i.product.name" />
+            <div>
+              <div class="name">{{ i.product.name }}</div>
+              <div class="muted">{{ i.product.categoryName }}</div>
+            </div>
+          </td>
+          <td>{{ i.product.price }}</td>
+          <td><input type="number" min="1" [value]="i.quantity" (change)="updateQty(i.product.id, $any($event.target).value)"/></td>
+          <td>{{ subTotal(i.product.price, i.quantity) | number:'1.2-2' }}</td>
+          <td><button class="btn secondary" (click)="remove(i.product.id)">Remove</button></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="total">Total: <strong>{{ total() | number:'1.2-2' }}</strong></div>
+    <a class="btn" routerLink="/checkout">Proceed to Checkout</a>
+  </ng-template>
+</section>
+
+

@@ -1,0 +1,106 @@
+<!-- Full-width carousel wrapper -->
+<div class="carousel-wrapper">
+  <div class="carousel">
+    <div class="slide active">
+      <img src="assets/BF.jpg" alt="Slide 1" />
+    </div>
+    <div class="slide">
+      <img src="assets/BF2.jpg" alt="Slide 2" />
+    </div>
+    <div class="slide">
+      <img src="assets/BF3.jpg" alt="Slide 3" />
+    </div>
+    <div class="slide">
+      <img src="assets/BF4.jpg" alt="Slide 4" />
+    </div>
+  </div>
+  <button class="carousel-btn prev" aria-label="Previous Slide">❮</button>
+  <button class="carousel-btn next" aria-label="Next Slide">❯</button>
+</div>
+
+
+<div class="home-content">
+  <div class="featured-categories">
+    <a class="tile wearables" routerLink="/category/Wearables">
+      <div class="icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5">
+          <rect x="7" y="5" width="10" height="14" rx="3" />
+          <path d="M9 5v14M15 5v14" />
+        </svg>
+      </div>
+      <span>Wearables</span>
+      <small class="tagline">Smart watches & fitness tech for daily life.</small>
+    </a>
+    <a class="tile audio" routerLink="/category/Audio Tech">
+      <div class="icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M4 10h4l4-4v12l-4-4H4z" />
+          <circle cx="18" cy="12" r="3" />
+        </svg>
+      </div>
+      <span>Audio Tech</span>
+      <small class="tagline">Wireless sound, redefined.</small>
+    </a>
+    <a class="tile smart-home" routerLink="/category/Smart Home">
+      <div class="icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M3 11l9-7 9 7v8a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2v-4H9v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+        </svg>
+      </div>
+      <span>Smart Home</span>
+      <small class="tagline">Automate your space.</small>
+    </a>
+    <a class="tile accessories" routerLink="/category/Accessories">
+      <div class="icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5">
+          <rect x="4" y="7" width="16" height="10" rx="2" />
+          <path d="M8 7V5a4 4 0 0 1 8 0v2" />
+        </svg>
+      </div>
+      <span>Accessories</span>
+      <small class="tagline">Essentials that complement your devices.</small>
+    </a>
+  </div>
+
+  <div class="featured-products">
+    <h2>Featured Products</h2>
+    @if (loading()) {
+    <div class="loading">Loading products...</div>
+    } @else {
+    <div class="grid">
+      @for (product of featuredProducts(); track product.id) {
+      <a class="card" [routerLink]="'/product/' + product.id">
+        <div class="img-wrap">
+          <img [src]="'assets/' + (product.imageFile || 'placeholder.png')" [alt]="product.name" />
+          <div class="badge" *ngIf="product.badge">{{ product.badge }}</div>
+        </div>
+        <div class="info">
+          <div class="name">{{ product.name }}</div>
+          <div class="price">₱{{ product.price }}</div>
+        </div>
+      </a>
+      }
+      <!-- Promo card to keep grid even and encourage browsing -->
+      <a class="card promo" routerLink="/products">
+        <div class="promo-inner">
+          <div class="promo-title">Browse All Products</div>
+          <div class="promo-sub">See everything new and trending</div>
+        </div>
+      </a>
+      @if (featuredProducts().length === 0) {
+      <div class="no-products">No featured products available</div>
+      }
+    </div>
+    }
+  </div>
+
+  <!-- Newsletter CTA -->
+  <section class="newsletter">
+    <h3>Stay Updated</h3>
+    <p>Get the latest deals and new product launches straight to your inbox.</p>
+    <div class="form">
+      <input type="email" placeholder="Enter your email" />
+      <button type="button">Subscribe</button>
+    </div>
+  </section>
+</div>

@@ -1,0 +1,33 @@
+<section class="category-page">
+  <div class="category-header">
+    <h2 class="category-title">{{ categoryName() }}</h2>
+    <p class="category-description">Discover the latest {{ categoryName() | lowercase }} technology</p>
+  </div>
+
+  @if (loading()) {
+    <div class="loading">
+      <div class="loading-spinner"></div>
+      <p>Loading products...</p>
+    </div>
+  } @else {
+    <div class="grid">
+      @for (product of products(); track product.id) {
+        <a class="card" [routerLink]="'/product/' + product.id">
+          <div class="card-image">
+            <img [src]="'assets/' + (product.imageFile || 'placeholder.png')" [alt]="product.name" />
+          </div>
+          <div class="info">
+            <div class="name">{{ product.name }}</div>
+            <div class="description">{{ product.description }}</div>
+            <div class="price">₱{{ product.price }}</div>
+          </div>
+        </a>
+      }
+      @if (products().length === 0) {
+        <div class="no-products">No products found in this category.</div>
+      }
+    </div>
+  }
+</section>
+
+

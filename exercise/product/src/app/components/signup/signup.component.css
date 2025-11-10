@@ -1,0 +1,126 @@
+.auth-container {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.auth-card {
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: 20px;
+  padding: 40px;
+  width: 100%;
+  max-width: 480px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+}
+
+.auth-card h2 {
+  margin: 0 0 32px;
+  font-size: 1.8rem;
+  font-weight: 700;
+  text-align: center;
+  background: linear-gradient(135deg, var(--brand), var(--brand-2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.error-message {
+  background: #fee;
+  color: #c33;
+  padding: 12px 16px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  border: 1px solid #fcc;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  font-weight: 600;
+  color: var(--text);
+  font-size: 0.95rem;
+}
+
+.form-group input {
+  padding: 12px 16px;
+  border: 1px solid var(--card-border);
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+  background: white;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: var(--brand);
+  box-shadow: 0 0 0 3px rgba(0, 102, 255, 0.1);
+}
+
+.auth-footer {
+  margin-top: 24px;
+  text-align: center;
+}
+
+.auth-footer p {
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.auth-footer a {
+  color: var(--brand);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.auth-footer a:hover {
+  text-decoration: underline;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+@media (max-width: 600px) {
+  .auth-card {
+    padding: 32px 24px;
+  }
+  
+  .auth-card h2 {
+    font-size: 1.5rem;
+  }
+  
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+

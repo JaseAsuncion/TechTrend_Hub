@@ -1,0 +1,44 @@
+.auth-link {
+  color: var(--text);
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  transition: all .2s ease;
+  font-weight: 500;
+}
+
+.auth-link:hover {
+  background: var(--bg);
+  color: var(--brand);
+}
+
+.auth-link.signup {
+  background: var(--brand);
+  color: white;
+}
+
+.auth-link.signup:hover {
+  background: #0052cc;
+  color: white;
+}
+
+.user-greeting {
+  color: var(--text-secondary);
+  margin-right: 8px;
+  font-size: 0.95rem;
+}
+
+.site-header .cart-link {
+  margin-left: 8px;
+}
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,24 @@
+<section class="detail" *ngIf="product() as p; else loadingTpl">
+  <a routerLink="/products" class="back">← Back to products</a>
+  <div class="content">
+    <img [src]="imageSrc()" [alt]="p.name" />
+    <div class="info">
+      <h2>{{ p.name }}</h2>
+      <div class="price">{{ p.price }}</div>
+      <p class="desc">{{ p.description }}</p>
+      <div class="meta">
+        <span>Category: {{ p.categoryName }}</span>
+        <span>Unit: {{ p.unitOfMeasure }}</span>
+      </div>
+      <button type="button" class="primary" (click)="addToCart(p)">Add to Cart</button>
+    </div>
+  </div>
+</section>
+
+<ng-template #loadingTpl>
+  <div class="loading">Loading...</div>
+  <a routerLink="/products" class="back">← Back to products</a>
+  
+</ng-template>
+
+
