@@ -170,10 +170,6 @@ VALUES
 - Login and signup are not connected to the backend yet (the calls in the Angular auth service are commented out).
 - Prices and descriptions of the sample products are placeholders.
 
-## Screenshots
-
-_Add screenshots here: home page, a category page, the cart, Postman responses, MySQL Workbench tables._
-
 ## Authors
 
-_Add team members here._
+Jase Miguel R. Asuncion
